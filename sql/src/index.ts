@@ -1,7 +1,7 @@
 import { Client } from "pg";
 
 const client=new Client({
-    connectionString:"postgresql://vanshit1519.be21:Aw6HFIzgsT8k@ep-wild-lab-a19bmhmh.ap-southeast-1.aws.neon.tech/vanshit?sslmode=require"
+    connectionString:""
 })
 async function connect() {
     await client.connect();
