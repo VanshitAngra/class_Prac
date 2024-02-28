@@ -23,4 +23,63 @@ function insertData(email, password, firstname) {
         console.log(user);
     });
 }
-insertData("vanshit@gmail.com", "vanshit12", "vanshit");
+let data = [
+    { email: "abc@gmail.com", password: "abc", firstname: "abc" },
+    { email: "xyz@gmail.com", password: "xyz", firstname: "xyz" },
+    { email: "pqr@gmail.com", password: "pqr", firstname: "pqr" }
+];
+function insertManyData(data) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const users = yield prisma.user.createMany({
+                data: data.map(entry => ({
+                    email: entry.email,
+                    password: entry.password,
+                    firstname: entry.firstname
+                }))
+            });
+            console.log(users);
+        }
+        catch (error) {
+            console.log(error);
+        }
+        // insertData("vanshit@gmail.com","vanshit12","vanshit");
+    });
+}
+function findunique(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const user = yield prisma.user.findUnique({
+            where: {
+                id: 2
+            }
+        });
+        console.log(user);
+    });
+}
+function findmany() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const user = yield prisma.user.findMany({
+            where: {
+                email: {
+                    contains: '@gmail.com'
+                }
+            }
+        });
+        console.log(user);
+    });
+}
+// insertManyData(data);
+// findunique(2);
+// findmany();
+function deleteuser(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const user = yield prisma.user.delete({
+            where: {
+                id: id
+            }
+        });
+        console.log("user deleted");
+    });
+}
+deleteuser(2);
+// insertData("vanshit@gmail.com","vanshit12","vanshit")

@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const pg_1 = require("pg");
 const client = new pg_1.Client({
-    connectionString: "postgresql://vanshit1519.be21:Aw6HFIzgsT8k@ep-wild-lab-a19bmhmh.ap-southeast-1.aws.neon.tech/vanshit?sslmode=require"
+    connectionString: "postgresql://vanshit1519.be21:**********@ep-wild-lab-a19bmhmh.ap-southeast-1.aws.neon.tech/vanshit?sslmode=require"
 });
 function connect() {
     return __awaiter(this, void 0, void 0, function* () {
