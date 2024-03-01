@@ -10,11 +10,19 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = ""
+  url      = "postgresql://vanshit1519.be21:*******zgsT8k@ep-wild-lab-a19bmhmh.ap-southeast-1.aws.neon.tech/primary?sslmode=require"
 }
 model User{
   id Int @id @default(autoincrement())
   email String
   password String
   firstname String?
+  todo Todo[]
+}
+model Todo{
+  id Int @id @default(autoincrement())
+  title String
+  desc String 
+  userid Int
+  user User @relation(fields:[userid],references:[id])
 }
